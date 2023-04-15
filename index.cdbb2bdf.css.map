@@ -1,0 +1,1 @@
+{"mappings":"","sources":["index.cdbb2bdf.css","src/sass/main.scss"],"sourcesContent":["\n\n/*# sourceMappingURL=index.cdbb2bdf.css.map */\n","/*\n * Główny plik dla stylów.\n * Wszystkie partials podłączamy tutaj.\n */\n\n// Style dla pliku z przykładem HTML fragmentu\n// @import './example';\n"],"names":[],"version":3,"file":"index.cdbb2bdf.css.map"}
