@@ -1,0 +1,37 @@
+.modal__image {
+  width: 100%;
+  margin: auto;
+}
+.modal__header {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 23px;
+  text-transform: uppercase;
+}
+.modal__features {
+  display: flex;
+}
+.modal__features--keys {
+  color: #8c8c8c;
+}
+.modal__features--values {
+  margin-left: 20px;
+}
+.modal__description-heading {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  text-transform: uppercase;
+}
+.modal__description-text {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 20px;
+  color: #000000;
+}

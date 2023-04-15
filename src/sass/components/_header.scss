@@ -1,24 +1,58 @@
-//img-backgound
+//img-background
 .header__home {
   background-image: url(../images/header-mobile.jpg);
   background-color: rgba(255, 255, 255, 0.8);
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
   background-position-y: 100%;
   padding-top: 40px;
-  z-index: 0;
-}
-//logo + navigation
-.header__nav {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  margin-bottom: 57px;
+  padding-bottom: 92px;
+
+  @media screen and (min-width: 768px) {
+    background-image: url(../images/header-tablet.jpg);
+    background-position: center;
+    padding-bottom: 81px;
+  }
 }
 
+//=================logo + navigation=================
+.header__nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 54px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 40px;
+  }
+}
+
+.heder__logo {
+  display: flex;
+  align-items: flex-end;
+  text-decoration: none;
+}
 .header__logo--svg {
+  display: inline-block;
   height: 24px;
   width: 24px;
+  text-decoration: none;
+}
+
+.header__logo--title {
+  display: none;
+
+  @media screen and (min-width: 768px) {
+    display: inline-block;
+    padding-left: 8px;
+    text-decoration: none;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 35px;
+    color: var(--text-white);
+  }
 }
 
 .navigation__list {
@@ -49,50 +83,67 @@
 .additional-padding {
   padding-left: 40px;
 }
-//form
+//=================form=================
 .form__search {
   position: relative;
   display: flex;
   justify-content: center;
-  padding-bottom: 92px;
 }
+
+//uderline input
+.search-wrapper {
+  border-bottom: 0.5px solid var(--text-white);
+  position: relative;
+  display: flex;
+}
+
 .form__search--input {
   padding-right: 40px;
   width: 280px;
   color: var(--text-white);
   background-color: initial;
   border: none;
-  border-bottom: 0.5px solid #ffffff;
+  border-bottom: 0.5px solid var(--text-white);
   padding-bottom: 4px;
   cursor: pointer;
-}
 
-.form__search--input::placeholder {
-  color: var(--text-white);
-  font-family: 'Roboto';
-  font-size: 14px;
-  line-height: 16px;
-}
-.form__search--input:focus-visible {
-  outline: 0;
+  @media screen and (min-width: 768px) {
+    width: 336px;
+  }
+
+  &::placeholder {
+    color: var(--text-white);
+    font-family: 'Roboto';
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  &:focus-visible {
+    outline: 0;
+  }
 }
 
 .form__btn {
   position: absolute;
-  background-color: initial;
   border: none;
-  padding: 0;
-  left: 76%;
+  bottom: 2px;
+  right: 22%;
+  background-color: initial;
   cursor: pointer;
   transition: transform 250ms cubic-bezier(0.075, 0.82, 0.165, 1);
-}
 
-.form__btn:hover {
-  transform: scale(1.5);
-}
+  @media screen and (min-width: 768px) {
+    right: 29%;
+  }
 
-.form__btn:focus-visible {
-  outline: 0;
+  &:hover,
+  &:focus {
+    transform: scale(1.5);
+  }
+
+  &:focus-visible {
+    outline: 0;
+  }
 }
 
 .form__btn--icon {
