@@ -2,7 +2,6 @@ import axios from "axios";
 import api from "./api";
 import { Loading } from "notiflix/build/notiflix-loading-aio";
 axios.defaults.baseURL = api.BASE_URL;
-const btn = document.querySelector(".btn");
 
 const getTrendingGallery = async () => {
 	try {
@@ -10,26 +9,32 @@ const getTrendingGallery = async () => {
 			svgColor: "red",
 			svgSize: "100px",
 		});
-		const response = await axios.get("trending/movie/day", {
+		const response = await axios.get("trending/all/day", {
 			params: {
 				api_key: api.API_KEY,
 			},
 		});
-		console.log(response);
 		Loading.remove();
 		const data = response.data;
-		console.log(data.results);
 		return data;
 	} catch (error) {
 		console.log(error);
 	}
 };
 
-const Click = (event) => {
-	event.preventDefault();
-	getTrendingGallery();
+const getGalleryGenres = async () => {
+	try {
+		const response = await axios.get("genre/movie/list", {
+			params: {
+				api_key: api.API_KEY,
+			},
+		});
+		const data = response.data;
+		return data.genres;
+	} catch (error) {
+		console.log(error);
+	}
 };
-btn.addEventListener("click", Click);
 
-const getGallery = { getTrendingGallery };
+const getGallery = { getTrendingGallery, getGalleryGenres };
 export default getGallery;
