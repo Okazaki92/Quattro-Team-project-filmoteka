@@ -1,5 +1,6 @@
 .movie__image {
   width: 100%;
+  cursor: pointer;
   @media screen and (min-width: 768px) {
     height: 455px;
     width: 336px;
