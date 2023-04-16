@@ -74,7 +74,7 @@
   color: var(--text-white);
 }
 
-.navigation__item--relative::after {
+.navigation__item--current::after {
   content: '';
   position: absolute;
   bottom: -5px;
