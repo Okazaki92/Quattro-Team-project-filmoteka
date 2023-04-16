@@ -26,6 +26,6 @@ searchForm.addEventListener("submit", async event => {
         })
         console.log(response)
     } catch (error) {
-        Notiflix.Notify.failure(`Sorry, there are no movie matching your search query. Please try again.`)
+     console.log(error);
     }
 });
