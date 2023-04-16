@@ -28,7 +28,7 @@ const renderTrendingGallery = async (movies) => {
           <h3 class="movie__title">${title || name}</h3>
           <div class="movie__subtitle">
           <p class="movie__genre">${genreNames}</p>
-          <p class="movie__date">${(release_date || first_air_date).slice(0, 4)}</p>
+          <p class="movie__date">${(release_date || first_air_date)?.slice(0, 4)}</p>
           <p class="movie__rating">${vote_average.toFixed(2) || "-"}</p>
           </div>
         </div>
