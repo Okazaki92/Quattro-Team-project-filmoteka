@@ -1,7 +1,7 @@
 //img-background
 .header__home {
   background-image: url(../images/header-mobile.jpg);
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.5);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -12,7 +12,11 @@
   @media screen and (min-width: 768px) {
     background-image: url(../images/header-tablet.jpg);
     background-position: center;
-    padding-bottom: 81px;
+    padding-bottom: 80px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    background-image: url(../images/header-desktop.jpg);
   }
 }
 
@@ -70,7 +74,7 @@
   color: var(--text-white);
 }
 
-.navigation__item--relative::after {
+.navigation__item--current::after {
   content: '';
   position: absolute;
   bottom: -5px;
@@ -111,6 +115,10 @@
     width: 336px;
   }
 
+  @media screen and (min-width: 1280px) {
+    width: 394px;
+  }
+
   &::placeholder {
     color: var(--text-white);
     font-family: 'Roboto';
@@ -134,6 +142,10 @@
 
   @media screen and (min-width: 768px) {
     right: 29%;
+  }
+
+  @media screen and (min-width: 1280px) {
+    right: 34.5%;
   }
 
   &:hover,
