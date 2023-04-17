@@ -7,7 +7,7 @@ const getTrendingGallery = async () => {
 	try {
 		Loading.pulse({
 			svgColor: "red",
-			svgSize: "100px",
+			svgSize: "200px",
 		});
 		const response = await axios.get("trending/all/day", {
 			params: {
