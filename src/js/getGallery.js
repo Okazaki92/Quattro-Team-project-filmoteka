@@ -9,7 +9,7 @@ const getTrendingGallery = async () => {
 			svgColor: "red",
 			svgSize: "200px",
 		});
-		const response = await axios.get("trending/all/day", {
+		const response = await axios.get("trending/movie/day", {
 			params: {
 				api_key: api.API_KEY,
 			},
