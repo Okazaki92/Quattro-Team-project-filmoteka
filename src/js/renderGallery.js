@@ -26,10 +26,10 @@ const renderTrendingGallery = async (movies) => {
             <img class="movie__image" src=https://image.tmdb.org/t/p/original${poster_path} alt="${title || name}" loading="lazy">
             <div class="movie__textbox">
           <h3 class="movie__title">${title || name}</h3>
-          <div class="movie__subtitle">
-          <p class="movie__genre">${genreNames}</p>
-          <p class="movie__date">${(release_date || first_air_date)?.slice(0, 4)}</p>
-          <p class="movie__rating">${vote_average.toFixed(2) || "-"}</p>
+		  <div class="movie__subtitle">
+          <span class="movie__genre">${genreNames}</span>
+          <span class="movie__date">| ${(release_date || first_air_date).slice(0, 4)}</span>
+          <span class="movie__rating">| ${vote_average.toFixed(2) || "-"}</span>
           </div>
         </div>
             </li>`;
