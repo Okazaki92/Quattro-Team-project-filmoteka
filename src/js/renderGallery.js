@@ -1,7 +1,7 @@
 const moviesDOM = document.querySelector(".movies__list");
 import getGallery from "./getGallery";
-let genreNames = [];
 const renderTrendingGallery = async (movies) => {
+	let genreNames = [];
 	const data = await getGallery.getGalleryGenres();
 	const markup = movies
 		.map((movie) => {
@@ -41,12 +41,9 @@ const renderTrendingGallery = async (movies) => {
 const onSubmit = async (event) => {
 	try {
 		const data = await getGallery.getTrendingGallery();
-		trendingGallery.renderTrendingGallery(data.results);
+		renderTrendingGallery(data.results);
 	} catch (error) {
 		console.log(error);
 	}
 };
 onSubmit();
-
-const trendingGallery = { renderTrendingGallery };
-export default trendingGallery;
