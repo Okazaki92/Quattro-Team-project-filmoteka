@@ -90,8 +90,9 @@
   display: flex;
   justify-content: space-evenly;
   @media screen and (min-width: 1280px) {
-    display: block;
-    margin-left: 8px;
+    // display: block;
+    // margin-left: 8px;
+    justify-content: center;
   }
 }
 .modal__buttons--watched {
