@@ -5,7 +5,7 @@
   "homepage": "https://Okazaki92.github.io/Quattro-Team-project-filmoteka",
   "scripts": {
     "dev": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url Quattro-Team-project-filmoteka"
+    "build": "parcel build src/*.html --public-url /Quattro-Team-project-filmoteka/"
   },
   "repository": {
     "type": "git",
