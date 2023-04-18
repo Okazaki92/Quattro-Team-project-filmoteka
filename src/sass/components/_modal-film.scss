@@ -87,7 +87,10 @@
 }
 .modal__buttons {
   margin-top: 20px;
+  display: flex;
+  justify-content: space-evenly;
   @media screen and (min-width: 1280px) {
+    display: block;
     margin-left: 8px;
   }
 }
@@ -101,7 +104,8 @@
   line-height: 16px;
   width: 110px;
   height: 44px;
-  // margin-right: 20px;
+  margin: 0px;
+  cursor: pointer;
 
   @media screen and (min-width: 768px) {
     width: 125px;
@@ -113,16 +117,22 @@
     height: 44px;
     margin-right: 15px;
   }
+  &:hover {
+    background-color: #d45900;
+    border: 1px solid #d45900;
+  }
 }
 .modal__buttons--queue {
   border-radius: 5px;
   border: 1px solid #000000;
   color: #000000;
+  background-color: #fff;
   font-weight: 500;
   font-size: 12px;
   line-height: 16px;
   width: 110px;
   height: 44px;
+  cursor: pointer;
 
   @media screen and (min-width: 768px) {
     width: 125px;
@@ -131,6 +141,9 @@
   @media screen and (min-width: 1280px) {
     width: 136px;
     height: 44px;
+  }
+  &:hover {
+    background-color: #eeeeee;
   }
 }
 
@@ -192,4 +205,9 @@
   top: 16px;
   right: 16px;
   cursor: pointer;
+
+  @media screen and (max-width: 767px) {
+    top: 8px;
+    right: 8px;
+  }
 }
