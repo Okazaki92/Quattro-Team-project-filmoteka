@@ -1,9 +1,9 @@
-const renderDescription = movie => {
-  const genre = movie.genres.map(({ name }) => name).join(', ');
-  return `
+const renderDescription = (movie) => {
+	const genre = movie.genres.map(({ name }) => name).join(", ");
+	return `
             <img class="modal__image" src=https://image.tmdb.org/t/p/original${
-              movie.poster_path
-            } alt="${movie.title || movie.name}">
+							movie.poster_path
+						} alt="${movie.title || movie.name}">
             <div class="modal__textbox">
     <h2 class="modal__header">${movie.title || movie.name}</h2>
     <div class="modal__features">
@@ -14,7 +14,7 @@ const renderDescription = movie => {
         <p class="modal__feature">Genre</p>
       </div>
       <div class="modal__features--values">
-        <p class="modal__feature"><button>${movie.vote_average}</button> / ${movie.vote_count}</p>
+      <p class="modal__feature"><button>${movie.vote_average.toFixed(2)}</button> / ${movie.vote_count}</p>
         <p class="modal__feature">${movie.popularity}</p>
         <p class="modal__feature">${movie.original_title || movie.original_name}</p>
         <p class="modal__feature">${genre}</p>
