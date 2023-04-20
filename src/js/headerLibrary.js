@@ -7,7 +7,6 @@ const headerNav = document.querySelector('#headerNav');
 //==========add two btn===============
 navMyLibrary.addEventListener('click', e => {
   e.preventDefault();
-
   headerHome.classList.add('header-library');
 
   navHome.classList.remove('navigation__item--current');
@@ -18,13 +17,13 @@ navMyLibrary.addEventListener('click', e => {
   const innerHtml = `
   <ul class="btn-library">
     <li class="btn-library__item">
-  <button id="btnWatched" class="btn-library__button btn-current-active">
-  watched
-  </button>
-  </li>
-  <li class="btn-library__item btn-library__button--space">
-  <button id="btnQueue" class="btn-library__button">queue</button>
-  </li>
+      <button id="btnWatched" class="btn-library__button btn-current-active">
+      watched
+      </button>
+    </li>
+      <li class="btn-library__item btn-library__button--space">
+      <button id="btnQueue" class="btn-library__button">queue</button>
+      </li>
   </ul>`;
 
   headerNav.insertAdjacentHTML('afterend', innerHtml);
@@ -34,17 +33,12 @@ navMyLibrary.addEventListener('click', e => {
 
   //===========change active btn===============
 
-  btnQueue.addEventListener('click', e => {
-    e.preventDefault();
+  const toggleBtnActive = () => {
+    btnWatched.classList.toggle('btn-current-active');
+    btnQueue.classList.toggle('btn-current-active');
+  };
 
-    btnWatched.classList.remove('btn-current-active');
-    btnQueue.classList.add('btn-current-active');
-  });
+  btnWatched.addEventListener('click', toggleBtnActive);
 
-  btnWatched.addEventListener('click', e => {
-    e.preventDefault();
-
-    btnQueue.classList.remove('btn-current-active');
-    btnWatched.classList.add('btn-current-active');
-  });
+  btnQueue.addEventListener('click', toggleBtnActive);
 });
