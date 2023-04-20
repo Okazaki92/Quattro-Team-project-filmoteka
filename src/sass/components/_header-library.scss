@@ -1,0 +1,66 @@
+.header-library {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+    url(../images/header-library-mobile.jpg);
+  background-color: rgba(0, 0, 0, 0.56);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-position-y: 100%;
+  padding-top: 40px;
+  padding-bottom: 60px;
+
+  @media screen and (min-width: 768px) {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url(../images/header-library-tablet.jpg);
+    background-position: center;
+    padding-bottom: 80px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url(../images/header-library-desktop.jpg);
+  }
+}
+
+//=========================btn==========
+.btn-library {
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+// .btn-library__item {
+
+// }
+
+.btn-library__button {
+  height: 44px;
+  width: 130px;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--text-white);
+  background-color: initial;
+  border: 1px solid var(--text-white);
+  border-radius: 5px;
+  transition: background-color 250ms cubic-bezier(0.075, 0.82, 0.165, 1);
+  filter: drop-shadow(0px 8px 43px rgba(255, 107, 1, 0.6));
+  cursor: pointer;
+}
+
+.btn-library__button--space {
+  padding-left: 20px;
+  @media screen and (min-width: 768px) {
+    padding-left: 32px;
+  }
+  @media screen and (min-width: 1280px) {
+    padding-left: 16px;
+  }
+}
+
+.btn-current-active {
+  background-color: var(--text-orange);
+  border: 0;
+}

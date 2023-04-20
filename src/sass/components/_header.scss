@@ -1,7 +1,7 @@
 //img-background
 .header__home {
-  background-image: url(../images/header-mobile.jpg);
-  background-color: rgba(255, 255, 255, 0.5);
+  background-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)),
+    url(../images/header-mobile.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -10,13 +10,15 @@
   padding-bottom: 92px;
 
   @media screen and (min-width: 768px) {
-    background-image: url(../images/header-tablet.jpg);
+    background-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)),
+      url(../images/header-tablet.jpg);
     background-position: center;
     padding-bottom: 80px;
   }
 
   @media screen and (min-width: 1280px) {
-    background-image: url(../images/header-desktop.jpg);
+    background-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)),
+      url(../images/header-desktop.jpg);
   }
 }
 
@@ -135,17 +137,17 @@
   position: absolute;
   border: none;
   bottom: 2px;
-  right: 22%;
+  right: 30%;
   background-color: initial;
   cursor: pointer;
   transition: transform 250ms cubic-bezier(0.075, 0.82, 0.165, 1);
 
   @media screen and (min-width: 768px) {
-    right: 29%;
+    right: 36%;
   }
 
   @media screen and (min-width: 1280px) {
-    right: 34.5%;
+    right: 39.5%;
   }
 
   &:hover,

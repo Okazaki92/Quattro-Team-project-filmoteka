@@ -3,7 +3,7 @@ import axios from "axios";
 import tredingGallery from "./renderGallery";
 axios.defaults.baseURL = api.BASE_URL;
 
-const searchForm = document.querySelector("#form__search");
+const searchForm = document.querySelector("#formSearch");
 const inputDOM = document.querySelector(".form__search--input")
 const moviesList = document.querySelector(".movies__list");
 

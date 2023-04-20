@@ -5,6 +5,7 @@
 
 // Style dla pliku z przykładem HTML fragmentu
 @import './components/header';
+@import './components/header-library';
 @import './utils/variables';
 @import './utils/button';
 @import './utils/container';
@@ -12,5 +13,6 @@
 @import './utils/typography';
 @import './utils/variables';
 @import './components/body';
+@import './components/pagination';
 @import './components/footer';
 @import './components/modal-film';

@@ -1,0 +1,32 @@
+#pagination {
+  height: 40px;
+  margin-bottom: 60px;
+
+  & .tui-page-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    color: var(--text-black);
+    border-radius: 5px;
+    border: none;
+    transition: border 200ms cubic-bezier(0.075, 0.82, 0.165, 1);
+
+    &:hover:not(.tui-is-disabled),
+    &:focus-visible:not(.tui-is-disabled) {
+      border: 1px solid var(--text-orange);
+    }
+  }
+
+  & .tui-next,
+  .tui-prev {
+    background-color: var(--background-footer);
+  }
+
+  & .tui-is-selected {
+    color: var(--text-white);
+    background-color: var(--text-orange);
+    cursor: pointer;
+  }
+}
