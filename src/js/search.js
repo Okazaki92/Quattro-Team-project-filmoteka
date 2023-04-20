@@ -19,8 +19,6 @@ searchForm.addEventListener("submit", async event => {
     const textInput = inputDOM.value;
     searchParams.query = textInput
     
-    page = 1;
-    
     try {
         const response = await axios.get("/search/movie", {
             params: searchParams,
