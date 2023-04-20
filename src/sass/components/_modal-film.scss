@@ -150,6 +150,8 @@
   opacity: 0;
   display: none;
   pointer-events: none;
+  transform: translateX(0%) translateY(6%) scale(0) skewX(40deg);
+  transition-duration: 250ms;
 }
 .modal {
   position: fixed;
@@ -209,4 +211,8 @@
     top: 8px;
     right: 8px;
   }
+}
+.modal.is-loading .modal__window {
+  visibility: hidden;
+  opacity: 0;
 }

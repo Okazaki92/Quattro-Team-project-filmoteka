@@ -15,6 +15,7 @@ const openModal = async (e) => {
 		return;
 	}
 	modal.classList.remove("is-hidden");
+	modal.classList.add("is-loading");
 	movieId = e.target.closest("li").dataset.id;
 	try {
 		const data = await getFilmDescription.getMovieDescription(movieId);
@@ -25,6 +26,9 @@ const openModal = async (e) => {
 	} catch (error) {
 		console.log(error);
 	}
+	finally {
+        modal.classList.remove("is-loading");
+    }
 };
 
 const closeModal = () => {
