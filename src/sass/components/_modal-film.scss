@@ -216,3 +216,36 @@
   visibility: hidden;
   opacity: 0;
 }
+.modal__window--open {
+  animation-name: modal-open;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.modal__window--close {
+  animation-name: modal-close;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes modal-open {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes modal-close {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
