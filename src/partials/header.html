@@ -1,23 +1,23 @@
 <header class="header" id="header">
-    <div class=" header__home">
+    <div id="headerHome" class=" header__home">
         <div class="container">
-            <div class="header__nav">
+            <div id="headerNav" class="header__nav">
                 <a class="header__logo" href="./index.html">
-                    <img class="header__logo--svg" src="./images/film.svg" alt="Icon film">
-                    <h1 class="header__logo--title">Filmoteka</h1>
+                    <img class="header__logo--svg" src="./images/film.svg" alt="Icon film"/><h1 class="header__logo--title">Filmoteka</h1>
                 </a>
                 <nav class="navigation">
                     <ul class="navigation__list">
                         <li class="navigation__item">
-                            <a class="navigation__item--link navigation__item--current" href="./index.html">home</a>
+                            <a id="navHome" class="navigation__item--link navigation__item--current"
+                                href="./index.html">home</a>
                         </li>
                         <li class="navigation__item additional-padding">
-                            <a class="navigation__item--link" href="./my-library.html">my library</a>
+                            <a id="navMyLibrary" class="navigation__item--link" href="./my-library.html">my library</a>
                         </li>
                     </ul>
                 </nav>
             </div>
-            <form class="form__search" id="form__search">
+            <form class="form__search" id="formSearch">
                 <div class="search-wrapper">
                     <input class="form__search--input" type="text" name="search" placeholder="Movie search"
                         autocomplete="off">
@@ -27,9 +27,6 @@
                 </button>
             </form>
         </div>
-        <button class="form__btn" type="submit">
-            <img class="form__btn--icon" src="./images/search.svg" alt="Icon search" />
-        </button>
         </form>
     </div>
     </div>
