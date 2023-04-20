@@ -2,6 +2,7 @@ const moviesDOM = document.querySelector(".movies__list");
 const IMG_URL = 'https://image.tmdb.org/t/p/original';
 const IMG_URL_DEFAULT = 'https://i.ibb.co/xq4LQMw/Filmoteka-by-Quattro.jpg'
 
+import getPagination from "./pagination";
 import getGallery from "./getGallery";
 const renderTrendingGallery = async (movies) => {
 	let genreNames = [];
@@ -50,6 +51,8 @@ const onSubmit = async (event) => {
 	}
 };
 onSubmit();
+
+getPagination();
 
 const tredingGallery = { renderTrendingGallery };
 export default tredingGallery;
