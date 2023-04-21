@@ -42,3 +42,11 @@ const closeModal = () => {
 };
 closeBtn.addEventListener('click', closeModal);
 imageItem.addEventListener('click',openModal);
+
+const keydownListener = (e) => {
+  if (e.key === "Escape") {
+closeModal()
+  }
+};
+
+document.addEventListener("keydown", keydownListener);
