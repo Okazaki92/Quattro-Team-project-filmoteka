@@ -23,13 +23,18 @@ searchForm.addEventListener("submit", async event => {
         const response = await axios.get("/search/movie", {
             params: searchParams,
         })
-        console.log(response);
         
         const searchedMovies = await response.data.results
-        console.log(searchedMovies)
-       
-        tredingGallery.renderTrendingGallery(searchedMovies);
-        moviesList.innerHTML = "";
+        const totalMovies = await response.data.total_results
+
+        if (totalMovies !== 0) {
+            tredingGallery.renderTrendingGallery(searchedMovies)
+        } else {
+            moviesList.innerHTML = `
+                <div class="mx-auto">
+                    <p class="movie__title">Sorry, we don't have any movie with<span class="movie__subtitle"> ${textInput}</span></p>
+                </div>`
+        }
     } catch (error) {
         console.error(error)
     }
