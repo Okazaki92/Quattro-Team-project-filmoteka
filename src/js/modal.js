@@ -38,7 +38,7 @@ const closeModal = () => {
     const modalTextbox = qs('.modal__textbox');
     modalTextbox.remove();
     modalImg.remove();
-  }, 500);
+  }, 1500);
 };
 closeBtn.addEventListener('click', closeModal);
 imageItem.addEventListener('click',openModal);

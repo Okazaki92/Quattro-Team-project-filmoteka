@@ -150,8 +150,6 @@
   opacity: 0;
   display: none;
   pointer-events: none;
-  transform: translateX(0%) translateY(6%) scale(0) skewX(40deg);
-  transition-duration: 250ms;
 }
 .modal {
   position: fixed;
@@ -163,15 +161,27 @@
   scale: 1;
   opacity: 1;
   visibility: visible;
-  transition-property: opacity, visibility, transform;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
+.modal__window--open {
+  transform: scaleY(0.01) scaleX(0);
+  animation: unfoldIn 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+.modal__window--open .modal__window {
+  transform: scale(0);
+  animation: zoomIn 0.5s 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+.modal__window--close {
+  transform: scale(1);
+  animation: unfoldOut 1s 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+.modal__window--close .modal__window {
+  animation: zoomOut 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
 .modal__window {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
   background-color: var(--text-white);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
@@ -183,6 +193,13 @@
   overflow-y: auto;
   display: flex;
   flex-direction: column;
+  margin: 0 auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition-property: opacity, visibility, transform;
+  position: absolute;
+
 
   @media screen and (min-width: 768px) {
     display: flex;
@@ -216,36 +233,44 @@
   visibility: hidden;
   opacity: 0;
 }
-.modal__window--open {
-  animation-name: modal-open;
-  animation-duration: 0.5s;
-  animation-fill-mode: forwards;
+@keyframes unfoldIn {
+  0% {
+    transform: scaleY(0.005) scaleX(0);
+  }
+  50% {
+    transform: scaleY(0.005) scaleX(1);
+  }
+  100% {
+    transform: scaleY(1) scaleX(1);
+  }
 }
 
-.modal__window--close {
-  animation-name: modal-close;
-  animation-duration: 0.5s;
-  animation-fill-mode: forwards;
+@keyframes unfoldOut {
+  0% {
+    transform: scaleY(1) scaleX(1);
+  }
+  50% {
+    transform: scaleY(0.005) scaleX(1);
+  }
+  100% {
+    transform: scaleY(0.005) scaleX(0);
+  }
 }
 
-@keyframes modal-open {
-  from {
+@keyframes zoomIn {
+  0% {
     transform: scale(0);
-    opacity: 0;
   }
-  to {
+  100% {
     transform: scale(1);
-    opacity: 1;
   }
 }
 
-@keyframes modal-close {
-  from {
+@keyframes zoomOut {
+  0% {
     transform: scale(1);
-    opacity: 1;
   }
-  to {
+  100% {
     transform: scale(0);
-    opacity: 0;
   }
 }
