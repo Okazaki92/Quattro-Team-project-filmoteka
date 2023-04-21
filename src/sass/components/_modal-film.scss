@@ -161,6 +161,7 @@
   scale: 1;
   opacity: 1;
   visibility: visible;
+  z-index: 9999;
 }
 .modal__window--open {
   transform: scaleY(0.01) scaleX(0);
@@ -199,7 +200,6 @@
   transform: translate(-50%, -50%);
   transition-property: opacity, visibility, transform;
   position: absolute;
-
 
   @media screen and (min-width: 768px) {
     display: flex;
