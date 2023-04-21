@@ -14,22 +14,26 @@ navMyLibrary.addEventListener('click', e => {
 
   formSearch.style.display = 'none';
 
-  const innerHtml = `
-  <ul class="btn-library">
-    <li class="btn-library__item">
-      <button id="btnWatched" class="btn-library__button btn-current-active">
-      watched
-      </button>
-    </li>
-      <li class="btn-library__item btn-library__button--space">
-      <button id="btnQueue" class="btn-library__button">queue</button>
+  const btnLibrary = document.querySelector('.btn-library');
+
+  if (!btnLibrary) {
+    const innerHtml = `
+    <ul class="btn-library">
+      <li class="btn-library__item">
+        <button id="btnWatched" class="btn-library__button btn-current-active">
+        watched
+        </button>
       </li>
-  </ul>`;
+        <li class="btn-library__item btn-library__button--space">
+        <button id="btnQueue" class="btn-library__button">queue</button>
+        </li>
+    </ul>`;
 
-  headerNav.insertAdjacentHTML('afterend', innerHtml);
+    headerNav.insertAdjacentHTML('afterend', innerHtml);
 
-  const btnWatched = document.querySelector('#btnWatched');
-  const btnQueue = document.querySelector('#btnQueue');
+    const btnWatched = document.querySelector('#btnWatched');
+    const btnQueue = document.querySelector('#btnQueue');
+  }
 
   //===========change active btn===============
 
@@ -39,6 +43,5 @@ navMyLibrary.addEventListener('click', e => {
   };
 
   btnWatched.addEventListener('click', toggleBtnActive);
-
   btnQueue.addEventListener('click', toggleBtnActive);
 });

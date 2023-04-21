@@ -1,34 +1,29 @@
-import getGallery from './getGallery';
-import tredingGallery from './renderGallery';
-import Pagination from 'tui-pagination';
-import 'tui-pagination/dist/tui-pagination.css';
+import getGallery from "./getGallery";
+import tredingGallery from "./renderGallery";
+import Pagination from "tui-pagination";
+import "tui-pagination/dist/tui-pagination.css";
 
-const paginationDOM = document.querySelector('#pagination');
+const paginationDOM = document.querySelector("#pagination");
+const page = 1;
+const setPagination = async (event) => {
+	try {
+		const data = await getGallery.getTrendingGallery(page);
+		const options = {
+			totalItems: data.total_results,
+			itemsPerPage: 20,
+			visiblePages: 5,
+			page: 1,
+			centerAlign: true,
+		};
 
-const setPagination = totalItems => {
-  const options = {
-    totalItems,
-    itemsPerPage: 10,
-    visiblePages: 5,
-    centerAlign: true,
-  };
+		const pagination = new Pagination(paginationDOM, options);
 
-  const pagination = new Pagination(paginationDOM, options);
-
-  return pagination;
+		pagination.on("beforeMove", async (event) => {
+			const newPageData = await getGallery.getTrendingGallery(event.page);
+			tredingGallery.renderTrendingGallery(newPageData.results);
+		});
+	} catch (error) {
+		console.log(error);
+	}
 };
-
-const getPagination = async () => {
-  try {
-    const data = await getGallery.getTrendingGallery(1);
-    const pagination = setPagination(data.totalItems);
-
-    pagination.on('beforeMove', ({ page }) => {
-      tredingGallery.renderTrendingGallery(page);
-    });
-  } catch (error) {
-    console.error(error);
-  }
-};
-
-export default getPagination;
+export default setPagination;
