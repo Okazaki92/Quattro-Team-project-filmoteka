@@ -44,6 +44,19 @@
   height: 24px;
   width: 24px;
   text-decoration: none;
+  animation-name: rotate;
+  animation-duration: 3s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+
+  @keyframes rotate {
+    from {
+      transform: rotatey(0deg);
+    }
+    to {
+      transform: rotatey(360deg);
+    }
+  }
 }
 
 .header__logo--title {
@@ -109,7 +122,6 @@
   color: var(--text-white);
   background-color: initial;
   border: none;
-  border-bottom: 0.5px solid var(--text-white);
   padding-bottom: 4px;
   cursor: pointer;
 
