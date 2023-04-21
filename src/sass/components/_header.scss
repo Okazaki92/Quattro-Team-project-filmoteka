@@ -79,6 +79,15 @@
   display: flex;
 }
 
+.navigation__item {
+  transition: transform 250ms cubic-bezier(0.075, 0.82, 0.165, 1);
+
+  &:hover,
+  &:focus {
+    transform: scale(1.2);
+  }
+}
+
 .navigation__item--link {
   position: relative;
   text-transform: uppercase;
@@ -87,6 +96,7 @@
   font-size: 12px;
   line-height: 14px;
   color: var(--text-white);
+  // transition: scale 250ms cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .navigation__item--current::after {
