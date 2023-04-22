@@ -4,7 +4,7 @@ import Pagination from "tui-pagination";
 import "tui-pagination/dist/tui-pagination.css";
 
 const paginationDOM = document.querySelector("#pagination");
-
+const page = 1;
 const setPagination = async (event) => {
 	try {
 		const data = await getGallery.getTrendingGallery(page);
