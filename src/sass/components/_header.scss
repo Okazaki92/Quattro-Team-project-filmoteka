@@ -71,6 +71,24 @@
     font-size: 30px;
     line-height: 35px;
     color: var(--text-white);
+
+    &:hover,
+    &:focus {
+      animation: glow 0.7s ease infinite alternate;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 10px var(--text-orange), 0 0 30px var(--text-orange),
+          0 0 50px var(--text-orange), 0 0 70px var(--text-orange), 0 0 90px var(--text-orange),
+          0 0 100px var(--text-orange), 0 0 150px var(--text-orange);
+      }
+      to {
+        text-shadow: 0 0 5px var(--text-orange), 0 0 10px var(--text-orange),
+          0 0 15px var(--text-orange), 0 0 20px var(--text-orange), 0 0 25px var(--text-orange),
+          0 0 35px var(--text-orange);
+      }
+    }
   }
 }
 
@@ -96,7 +114,6 @@
   font-size: 12px;
   line-height: 14px;
   color: var(--text-white);
-  // transition: scale 250ms cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .navigation__item--current::after {

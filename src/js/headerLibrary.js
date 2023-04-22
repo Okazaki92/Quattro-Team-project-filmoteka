@@ -37,9 +37,13 @@ navMyLibrary.addEventListener('click', e => {
 
   //===========change active btn===============
 
-  const toggleBtnActive = () => {
-    btnWatched.classList.toggle('btn-current-active');
-    btnQueue.classList.toggle('btn-current-active');
+  const toggleBtnActive = e => {
+    const clickedBtn = e.target;
+
+    if (!clickedBtn.classList.contains('btn-current-active')) {
+      btnWatched.classList.toggle('btn-current-active');
+      btnQueue.classList.toggle('btn-current-active');
+    }
   };
 
   btnWatched.addEventListener('click', toggleBtnActive);
