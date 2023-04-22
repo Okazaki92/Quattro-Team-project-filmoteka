@@ -41,4 +41,19 @@ const closeModal = () => {
   }, 1500);
 };
 closeBtn.addEventListener('click', closeModal);
-imageItem.addEventListener('click',openModal);
+imageItem.addEventListener('click', openModal);
+
+const keydownListener = e => {
+  if (e.key === 'Escape') {
+    closeModal();
+  }
+};
+
+const clickAway = e => {
+  if (e.target.classList.contains('modal') && !e.target.classList.contains('modal__window')) {
+    closeModal();
+  }
+};
+
+document.addEventListener('keydown', keydownListener);
+document.addEventListener('click', clickAway);
