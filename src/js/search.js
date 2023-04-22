@@ -12,7 +12,8 @@ const moviesList = document.querySelector(".movies__list");
 const paginationDOM = document.querySelector("#pagination");
 
 let query = "";
-const page = 1;
+// rome-ignore lint/style/useConst: <explanation>
+let page = 1;
 searchForm.addEventListener("submit", async (event) => {
 	event.preventDefault();
 
@@ -20,7 +21,7 @@ searchForm.addEventListener("submit", async (event) => {
 	try {
 		const data = await searchMovies(page, query);
 		const searchedMovies = await data.results;
-		console.log(searchedMovies);
+		console.log(searchedMovies.length);
 		const totalMovies = await data.total_results;
 		const options = {
 			totalItems: data.total_results,
@@ -30,13 +31,17 @@ searchForm.addEventListener("submit", async (event) => {
 			centerAlign: true,
 		};
 		const pagination = new Pagination(paginationDOM, options);
-
-		if (totalMovies !== 0) {
-			tredingGallery.renderTrendingGallery(searchedMovies);
+		if (searchedMovies.length !== 0) {
 			pagination.on("beforeMove", async (event) => {
 				const newPageData = await searchMovies(event.page, query);
 				tredingGallery.renderTrendingGallery(newPageData.results);
 			});
+		} else {
+			paginationDOM.innerHTML = "";
+		}
+		if (totalMovies !== 0) {
+			tredingGallery.renderTrendingGallery(searchedMovies);
+			inputDOM.value = "";
 		} else {
 			moviesList.innerHTML = `
 			<div class="mx-auto">

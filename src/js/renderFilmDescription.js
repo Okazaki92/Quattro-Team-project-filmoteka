@@ -1,9 +1,13 @@
+const IMG_URL = "https://image.tmdb.org/t/p/original";
+const IMG_URL_DEFAULT = "https://i.ibb.co/xq4LQMw/Filmoteka-by-Quattro.jpg";
+const noInfo = "Sorry no information provided";
+
 const renderDescription = (movie) => {
 	const genre = movie.genres.map(({ name }) => name).join(", ");
 	return `
-            <img class="modal__image" src=https://image.tmdb.org/t/p/original${
-							movie.poster_path
-						} alt="${movie.title || movie.name}">
+            <img class="modal__image" src="${
+							movie.poster_path ? IMG_URL + movie.poster_path : IMG_URL_DEFAULT
+						}" alt="${movie.title || movie.name}">
             <div class="modal__textbox">
     <h2 class="modal__header">${movie.title || movie.name}</h2>
     <div class="modal__features">
@@ -14,7 +18,9 @@ const renderDescription = (movie) => {
         <p class="modal__feature">Genre</p>
       </div>
       <div class="modal__features--values">
-      <p class="modal__feature"><button>${movie.vote_average.toFixed(1)}</button> / ${movie.vote_count}</p>
+      <p class="modal__feature"><button>${movie.vote_average.toFixed(
+				1,
+			)}</button> / ${movie.vote_count}</p>
         <p class="modal__feature">${movie.popularity}</p>
         <p class="modal__feature">${movie.original_title || movie.original_name}</p>
         <p class="modal__feature">${genre}</p>
@@ -22,7 +28,9 @@ const renderDescription = (movie) => {
     </div>
     <div class="modal__description-container">
       <h3 class="modal__description-heading">ABOUT</h3>
-      <p class="modal__description-text">${movie.overview}</p>
+      <p class="modal__description-text">${
+				movie.overview ? movie.overview : noInfo
+			}</p>
     </div>
     <div class="modal__buttons">
         <button class="modal__buttons--watched">ADD TO WATCHED</button
