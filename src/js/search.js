@@ -13,6 +13,7 @@ const moviesList = document.querySelector(".movies__list");
 const paginationDOM = document.querySelector("#pagination");
 
 let query = "";
+// rome-ignore lint/style/useConst: <explanation>
 let page = 1;
 searchForm.addEventListener("submit", async (event) => {
 	event.preventDefault();
@@ -21,6 +22,7 @@ searchForm.addEventListener("submit", async (event) => {
 	try {
 		const data = await searchMovies(page, query);
 		const searchedMovies = await data.results;
+		console.log(searchedMovies.length);
 		console.log(searchedMovies);
 		const totalMovies = await data.total_results;
 		const options = {
@@ -31,14 +33,18 @@ searchForm.addEventListener("submit", async (event) => {
 			centerAlign: true,
 		};
 		const pagination = new Pagination(paginationDOM, options);
-
-        if (totalMovies !== 0) {
-            tredingGallery.renderTrendingGallery(searchedMovies);
-            pagination.on("beforeMove", async (event) => {
-                const newPageData = await searchMovies(event.page, query);
-                tredingGallery.renderTrendingGallery(newPageData.results);
-            });
-        }else if (totalMovies !== "") {
+		if (searchedMovies.length !== 0) {
+			pagination.on("beforeMove", async (event) => {
+				const newPageData = await searchMovies(event.page, query);
+				tredingGallery.renderTrendingGallery(newPageData.results);
+			});
+		} else {
+			paginationDOM.innerHTML = "";
+		}
+		if (totalMovies !== 0) {
+			tredingGallery.renderTrendingGallery(searchedMovies);
+			inputDOM.value = "";
+		} else if (totalMovies !== "") {
 			const newPageData = await getGallery.getTrendingGallery(event.page);
 			tredingGallery.renderTrendingGallery(newPageData.results);
 		} else {

@@ -1,23 +1,31 @@
-const navMyLibrary = document.querySelector('#navMyLibrary');
-const navHome = document.querySelector('#navHome');
-const formSearch = document.querySelector('#formSearch');
-const headerHome = document.querySelector('#headerHome');
-const headerNav = document.querySelector('#headerNav');
+import { getFromWatched } from "./localStorage";
+import { setPaginationQueued, setPaginationWatched } from "./paginationLibrary";
+import {
+	renderWatchedMovies,
+	submitQueued,
+	submitWatched,
+} from "./renderLibraryMovies";
+
+const navMyLibrary = document.querySelector("#navMyLibrary");
+const navHome = document.querySelector("#navHome");
+const formSearch = document.querySelector("#formSearch");
+const headerHome = document.querySelector("#headerHome");
+const headerNav = document.querySelector("#headerNav");
 
 //==========add two btn===============
-navMyLibrary.addEventListener('click', e => {
-  e.preventDefault();
-  headerHome.classList.add('header-library');
+navMyLibrary.addEventListener("click", (e) => {
+	e.preventDefault();
+	headerHome.classList.add("header-library");
 
-  navHome.classList.remove('navigation__item--current');
-  navMyLibrary.classList.add('navigation__item--current');
+	navHome.classList.remove("navigation__item--current");
+	navMyLibrary.classList.add("navigation__item--current");
 
-  formSearch.style.display = 'none';
+	formSearch.style.display = "none";
 
-  const btnLibrary = document.querySelector('.btn-library');
+	const btnLibrary = document.querySelector(".btn-library");
 
-  if (!btnLibrary) {
-    const innerHtml = `
+	if (!btnLibrary) {
+		const innerHtml = `
     <ul class="btn-library">
       <li class="btn-library__item">
         <button id="btnWatched" class="btn-library__button btn-current-active">
@@ -29,23 +37,31 @@ navMyLibrary.addEventListener('click', e => {
         </li>
     </ul>`;
 
-    headerNav.insertAdjacentHTML('afterend', innerHtml);
+		headerNav.insertAdjacentHTML("afterend", innerHtml);
 
-    const btnWatched = document.querySelector('#btnWatched');
-    const btnQueue = document.querySelector('#btnQueue');
-  }
+		const btnWatched = document.querySelector("#btnWatched");
+		const btnQueue = document.querySelector("#btnQueue");
 
-  //===========change active btn===============
+		//==========add movies to my-library==========
 
-  const toggleBtnActive = e => {
-    const clickedBtn = e.target;
+		submitWatched();
+		setPaginationWatched();
+		!btnWatched.classList === "btn-current-active"
+			? setPaginationQueued() && submitQueued()
+			: setPaginationWatched() && submitWatched();
+	}
 
-    if (!clickedBtn.classList.contains('btn-current-active')) {
-      btnWatched.classList.toggle('btn-current-active');
-      btnQueue.classList.toggle('btn-current-active');
-    }
-  };
+	//===========change active btn===============
 
-  btnWatched.addEventListener('click', toggleBtnActive);
-  btnQueue.addEventListener('click', toggleBtnActive);
+	const toggleBtnActive = (e) => {
+		const clickedBtn = e.target;
+
+		if (!clickedBtn.classList.contains("btn-current-active")) {
+			btnWatched.classList.toggle("btn-current-active");
+			btnQueue.classList.toggle("btn-current-active");
+		}
+	};
+
+	btnWatched.addEventListener("click", toggleBtnActive);
+	btnQueue.addEventListener("click", toggleBtnActive);
 });
