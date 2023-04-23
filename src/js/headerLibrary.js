@@ -41,14 +41,25 @@ navMyLibrary.addEventListener("click", (e) => {
 
 		const btnWatched = document.querySelector("#btnWatched");
 		const btnQueue = document.querySelector("#btnQueue");
-
+		console.log(btnWatched.classList);
 		//==========add movies to my-library==========
-
 		submitWatched();
 		setPaginationWatched();
-		!btnWatched.classList === "btn-current-active"
-			? setPaginationQueued() && submitQueued()
-			: setPaginationWatched() && submitWatched();
+
+		const activeQueued = (event) => {
+			if (btnQueue) {
+				submitQueued();
+				setPaginationQueued();
+			}
+		};
+		const activeWatched = (event) => {
+			if (btnWatched) {
+				submitWatched();
+				setPaginationWatched();
+			}
+		};
+		btnWatched.addEventListener("click", activeWatched);
+		btnQueue.addEventListener("click", activeQueued);
 	}
 
 	//===========change active btn===============

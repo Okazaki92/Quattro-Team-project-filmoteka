@@ -18,7 +18,7 @@ export const setPaginationWatched = (event) => {
 		const pagination = new Pagination(paginationDOM, options);
 
 		pagination.on("beforeMove", (event) => {
-			const newPageData = getFromWatched(event.page);
+			const newPageData = getFromWatched(event);
 			console.log(newPageData);
 			renderWatchedMovies(newPageData);
 		});
@@ -28,7 +28,7 @@ export const setPaginationWatched = (event) => {
 };
 export const setPaginationQueued = (event) => {
 	try {
-		const data = getFromWatched();
+		const data = getFromQueued();
 		console.log(data.length);
 		const options = {
 			totalItems: data.length,
@@ -40,7 +40,7 @@ export const setPaginationQueued = (event) => {
 		const pagination = new Pagination(paginationDOM, options);
 
 		pagination.on("beforeMove", (event) => {
-			const newPageData = getFromQueued(event.page);
+			const newPageData = getFromQueued(event);
 			console.log(newPageData);
 			renderWatchedMovies(newPageData);
 		});
