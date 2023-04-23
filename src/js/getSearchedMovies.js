@@ -24,4 +24,5 @@ const searchMovies = async (page, query) => {
 		console.log(error);
 	}
 };
+
 export default searchMovies;

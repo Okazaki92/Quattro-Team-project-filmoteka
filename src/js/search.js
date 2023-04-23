@@ -1,6 +1,7 @@
 import api from "./api";
 import axios from "axios";
 import tredingGallery from "./renderGallery";
+import getGallery from "./getGallery";
 import searchMovies from "./getSearchedMovies";
 import Pagination from "tui-pagination";
 import "tui-pagination/dist/tui-pagination.css";
@@ -22,6 +23,7 @@ searchForm.addEventListener("submit", async (event) => {
 		const data = await searchMovies(page, query);
 		const searchedMovies = await data.results;
 		console.log(searchedMovies.length);
+		console.log(searchedMovies);
 		const totalMovies = await data.total_results;
 		const options = {
 			totalItems: data.total_results,
@@ -42,6 +44,9 @@ searchForm.addEventListener("submit", async (event) => {
 		if (totalMovies !== 0) {
 			tredingGallery.renderTrendingGallery(searchedMovies);
 			inputDOM.value = "";
+		} else if (totalMovies !== "") {
+			const newPageData = await getGallery.getTrendingGallery(event.page);
+			tredingGallery.renderTrendingGallery(newPageData.results);
 		} else {
 			moviesList.innerHTML = `
 			<div class="mx-auto">
