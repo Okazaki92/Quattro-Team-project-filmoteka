@@ -1,6 +1,6 @@
 .movie__image {
   width: 100%;
- 
+
   @media screen and (min-width: 768px) {
     height: 455px;
     width: 336px;
@@ -25,7 +25,7 @@
 }
 
 .movie {
-  margin: 0; 
+  margin: 0;
   cursor: pointer;
   @media screen and (min-width: 768px) {
     max-width: 336px;
@@ -90,7 +90,12 @@
   }
   @media screen and (min-width: 1280px) {
     gap: 16px;
-    justify-content: space-between;
+    justify-content: flex-start;
+  }
+
+  @media screen and (min-width: 1281px) {
+    gap: 16px;
+    justify-content: space-evenly;
   }
 
   .mx-auto {
