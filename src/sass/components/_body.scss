@@ -93,11 +93,6 @@
     justify-content: flex-start;
   }
 
-  @media screen and (min-width: 1281px) {
-    gap: 16px;
-    justify-content: space-evenly;
-  }
-
   .mx-auto {
     margin-inline: auto;
   }
