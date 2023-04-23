@@ -1,5 +1,9 @@
+import { isMovieInList } from "./localStorage";
+
 const renderDescription = (movie) => {
-	const genre = movie.genres.map(({ name }) => name).join(", ");
+  const genre = movie.genres.map(({ name }) => name).join(", ");
+    const watchedButtonText = isMovieInList('watched', movie.id) ? "ADDED TO WATCHED" : "ADD TO WATCHED";
+    const queueButtonText = isMovieInList('queue', movie.id) ? "ADDED TO QUEUE" : "ADD TO QUEUE";
 	return `
             <img class="modal__image" src=https://image.tmdb.org/t/p/original${
 							movie.poster_path
@@ -24,9 +28,9 @@ const renderDescription = (movie) => {
       <h3 class="modal__description-heading">ABOUT</h3>
       <p class="modal__description-text">${movie.overview}</p>
     </div>
-    <div class="modal__buttons">
-        <button class="modal__buttons--watched">ADD TO WATCHED</button
-        ><button class="modal__buttons--queue">ADD TO QUEUE</button>
+      <div class="modal__buttons">
+        <button class="modal__btn" data-btn="addToWatched">${watchedButtonText}</button>
+        <button class="modal__btn" data-btn="addToQueue">${queueButtonText}</button>
       </div>
   </div>`;
 };

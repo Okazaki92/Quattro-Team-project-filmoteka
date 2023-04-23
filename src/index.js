@@ -5,3 +5,4 @@ import './js/search';
 import './js/modal';
 import './js/getFilmDescription';
 import './js/pagination';
+import './js/localStorage';
