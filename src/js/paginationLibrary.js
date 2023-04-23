@@ -1,6 +1,6 @@
 import Pagination from "tui-pagination";
 import "tui-pagination/dist/tui-pagination.css";
-import { getFromQueued, getFromWatched } from "./local-storage";
+import { getFromQueued, getFromWatched } from "./localStorage";
 import { renderWatchedMovies } from "./renderLibraryMovies";
 
 const paginationDOM = document.querySelector("#pagination");
