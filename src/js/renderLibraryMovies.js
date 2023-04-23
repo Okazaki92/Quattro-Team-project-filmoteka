@@ -48,7 +48,7 @@ export const renderWatchedMovies = async (movies) => {
 	moviesDOM.insertAdjacentHTML("beforeend", markup);
 };
 
-export const submitWatched = async (event) => {
+export const submitWatched = (event) => {
 	moviesDOM.innerHTML = "";
 	try {
 		const data = getFromWatched();
@@ -57,7 +57,7 @@ export const submitWatched = async (event) => {
 		console.log(error);
 	}
 };
-export const submitQueued = async (event) => {
+export const submitQueued = (event) => {
 	moviesDOM.innerHTML = "";
 	try {
 		const data = getFromQueued();

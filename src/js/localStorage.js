@@ -35,5 +35,6 @@ export const getFromWatched = (movie) => {
 };
 
 export const getFromQueued = (movie) => {
-	getFromLocalStorage("queued", movie);
+	const data = getFromLocalStorage("queue");
+	return data;
 };
