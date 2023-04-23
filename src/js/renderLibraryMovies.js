@@ -1,4 +1,4 @@
-import { getFromQueued, getFromWatched } from "./local-storage";
+import { getFromQueued, getFromWatched } from "./localStorage";
 import getGallery from "./getGallery";
 const moviesDOM = document.querySelector(".movies__list");
 const IMG_URL = "https://image.tmdb.org/t/p/original";
