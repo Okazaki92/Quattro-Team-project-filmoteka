@@ -33,7 +33,25 @@
   @media screen and (min-width: 1280px) {
     max-width: 395px;
   }
+  &:hover,
+  &:focus {
+    animation: glow 0.7s ease infinite alternate;
+    transform: scale(1.05);
+  }
+  @keyframes glow {
+    from {
+      text-shadow: 0 0 10px var(--text-orange), 0 0 30px var(--text-orange),
+        0 0 50px var(--text-orange), 0 0 70px var(--text-orange), 0 0 90px var(--text-orange),
+        0 0 100px var(--text-orange), 0 0 150px var(--text-orange);
+    }
+    to {
+      text-shadow: 0 0 5px var(--text-orange), 0 0 10px var(--text-orange),
+        0 0 15px var(--text-orange), 0 0 20px var(--text-orange), 0 0 25px var(--text-orange),
+        0 0 35px var(--text-orange);
+    }
+  }
 }
+
 .movie__title {
   font-family: Roboto;
   font-size: 12px;
