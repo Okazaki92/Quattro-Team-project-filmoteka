@@ -26,13 +26,14 @@ export const removeFromList = (key, movieId) => {
 const getFromLocalStorage = (key, page) => {
   const data = JSON.parse(localStorage.getItem(key));
   const itemsPerPage = 15;
-  const start = (page - 1) * itemsPerPage;
-  const end = start + itemsPerPage;
-  return data.slice(start, end);
+  const startIndex = (page - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  return data.slice(startIndex, endIndex);
 };
 
 export const getFromWatched = (page) => {
   const data = getFromLocalStorage("watched", page);
+  console.log(data);
   return data;
 };
 

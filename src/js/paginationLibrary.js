@@ -4,12 +4,14 @@ import { getFromQueued, getFromWatched } from "./localStorage";
 import { renderLibraryMovies } from "./renderLibraryMovies";
 
 const paginationDOM = document.querySelector("#pagination");
-export const setPaginationWatched = (event) => {
+
+export const setPaginationWatched = () => {
   try {
     const data = getFromWatched(1);
+    const totalItems = JSON.parse(localStorage.getItem("watched")).length;
     const options = {
-      totalItems: data.length,
-      itemsPerPage: 3,
+      totalItems: totalItems,
+      itemsPerPage: 15,
       visiblePages: 5,
       page: 1,
       centerAlign: true,
@@ -24,12 +26,14 @@ export const setPaginationWatched = (event) => {
     console.log(error);
   }
 };
-export const setPaginationQueued = (event) => {
+
+export const setPaginationQueued = () => {
   try {
     const data = getFromQueued(1);
+    const totalItems = JSON.parse(localStorage.getItem("queue")).length;
     const options = {
-      totalItems: data.length,
-      itemsPerPage: 3,
+      totalItems: totalItems,
+      itemsPerPage: 15,
       visiblePages: 5,
       page: 1,
       centerAlign: true,
