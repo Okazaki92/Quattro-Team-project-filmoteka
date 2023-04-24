@@ -22,8 +22,6 @@ searchForm.addEventListener("submit", async (event) => {
 	try {
 		const data = await searchMovies(page, query);
 		const searchedMovies = await data.results;
-		console.log(searchedMovies.length);
-		console.log(searchedMovies);
 		const totalMovies = await data.total_results;
 		const options = {
 			totalItems: data.total_results,
@@ -44,13 +42,17 @@ searchForm.addEventListener("submit", async (event) => {
 		if (totalMovies !== 0) {
 			tredingGallery.renderTrendingGallery(searchedMovies);
 			inputDOM.value = "";
-		} else if (totalMovies !== "") {
-			const newPageData = await getGallery.getTrendingGallery(event.page);
-			tredingGallery.renderTrendingGallery(newPageData.results);
-		} else {
+		}
+		else if (query === "" && searchedMovies.length === 0) {
 			moviesList.innerHTML = `
 			<div class="mx-auto">
-			<p class="movie__title">Sorry, we don't have any movie with<span class="movie__subtitle"> ${query}</span></p>
+			<p class="movie__alert movie__alert--animation">Please write movie name</p>
+			</div>`;
+		}
+		else {
+			moviesList.innerHTML = `
+			<div class="mx-auto">
+			<p class="movie__alert">Sorry, we don't have any movie with <span class="movie__alert--color">${query}</span>. Try again!</p>
 			</div>`;
 		}
 	} catch (error) {
