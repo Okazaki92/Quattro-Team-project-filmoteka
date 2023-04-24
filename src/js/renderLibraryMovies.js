@@ -7,7 +7,6 @@ const IMG_URL_DEFAULT = "https://i.ibb.co/xq4LQMw/Filmoteka-by-Quattro.jpg";
 export const renderLibraryMovies = async (movies) => {
   let genreNames = [];
   const genres = await getGallery.getGalleryGenres();
-  console.log(movies);
   const markup = movies
     .map(
       ({

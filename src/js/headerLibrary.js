@@ -41,7 +41,6 @@ navMyLibrary.addEventListener("click", (e) => {
 
 		const btnWatched = document.querySelector("#btnWatched");
 		const btnQueue = document.querySelector("#btnQueue");
-		console.log(btnWatched.classList);
 		//==========add movies to my-library==========
 		submitWatched();
 		setPaginationWatched();

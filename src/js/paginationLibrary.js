@@ -7,7 +7,6 @@ const paginationDOM = document.querySelector("#pagination");
 export const setPaginationWatched = (event) => {
   try {
     const data = getFromWatched(1);
-    console.log(data.length);
     const options = {
       totalItems: data.length,
       itemsPerPage: 3,
@@ -19,7 +18,6 @@ export const setPaginationWatched = (event) => {
 
     pagination.on("beforeMove", (event) => {
       const newPageData = getFromWatched(event.page);
-      console.log(newPageData);
       renderLibraryMovies(newPageData);
     });
   } catch (error) {
@@ -29,7 +27,6 @@ export const setPaginationWatched = (event) => {
 export const setPaginationQueued = (event) => {
   try {
     const data = getFromQueued(1);
-    console.log(data.length);
     const options = {
       totalItems: data.length,
       itemsPerPage: 3,
@@ -41,7 +38,6 @@ export const setPaginationQueued = (event) => {
 
     pagination.on("beforeMove", (event) => {
       const newPageData = getFromQueued(event.page);
-      console.log(newPageData);
       renderLibraryMovies(newPageData);
     });
   } catch (error) {
