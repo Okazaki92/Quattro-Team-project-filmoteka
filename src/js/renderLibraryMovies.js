@@ -1,8 +1,29 @@
+import { setPaginationWatched, setPaginationQueued } from './paginationLibrary';
 import { getFromQueued, getFromWatched } from "./localStorage";
 import getGallery from "./getGallery";
 const moviesDOM = document.querySelector(".movies__list");
 const IMG_URL = "https://image.tmdb.org/t/p/original";
 const IMG_URL_DEFAULT = "https://i.ibb.co/xq4LQMw/Filmoteka-by-Quattro.jpg";
+
+export const submitWatched = (event) => {
+  try {
+    const data = getFromWatched(1);
+    renderLibraryMovies(data);
+    setPaginationWatched();
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const submitQueued = (event) => {
+  try {
+    const data = getFromQueued(1);
+    renderLibraryMovies(data);
+    setPaginationQueued();
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 export const renderLibraryMovies = async (movies) => {
   let genreNames = [];
@@ -47,22 +68,4 @@ export const renderLibraryMovies = async (movies) => {
     .join("");
   moviesDOM.innerHTML = '';
   moviesDOM.insertAdjacentHTML("beforeend", markup);
-};
-
-export const submitWatched = (event) => {
-  try {
-    const data = getFromWatched(1);
-    renderLibraryMovies(data);
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-export const submitQueued = (event) => {
-  try {
-    const data = getFromQueued(1);
-    renderLibraryMovies(data);
-  } catch (error) {
-    console.log(error);
-  }
 };
