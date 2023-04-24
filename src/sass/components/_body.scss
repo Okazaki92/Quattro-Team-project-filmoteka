@@ -94,6 +94,8 @@
   }
 }
 .movies__list {
+  display: flex;
+  flex-wrap: wrap;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -101,8 +103,6 @@
   justify-content: flex-start;
 
   @media screen and (min-width: 768px) {
-    flex-wrap: wrap;
-    display: flex;
     gap: 32px;
     justify-content: space-evenly;
   }
@@ -113,5 +113,18 @@
 
   .mx-auto {
     margin-inline: auto;
+  }
+  .movie__alert {
+    font-family: Roboto;
+    font-size: 25px;
+    font-weight: 500;
+    line-height: 1.33;
+
+  & .movie__alert--color {
+      color: var(--text-orange);
+    }
+  &.movie__alert--animation {
+      animation: .7s infinite alternate glow;
+    }
   }
 }
