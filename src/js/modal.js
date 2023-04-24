@@ -70,6 +70,7 @@ const addModalButtonListeners = (movie) => {
 		if (isMovieInList(key, movie.id)) {
 			removeFromList(key, movie.id);
 			button.textContent = notAddedText;
+			button.classList.remove("active");
 		} else {
 			if (key === "watched") {
 				addToWatched(movie);
@@ -77,6 +78,7 @@ const addModalButtonListeners = (movie) => {
 				addToQueue(movie);
 			}
 			button.textContent = addedText;
+			button.classList.add("active");
 		}
 	};
 

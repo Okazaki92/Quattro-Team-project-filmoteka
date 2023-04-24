@@ -1,13 +1,13 @@
+import { isMovieInList } from "./localStorage";
+
 const IMG_URL = "https://image.tmdb.org/t/p/original";
 const IMG_URL_DEFAULT = "https://i.ibb.co/xq4LQMw/Filmoteka-by-Quattro.jpg";
 const noInfo = "Sorry no information provided";
 
-import { isMovieInList } from "./localStorage";
-
 const renderDescription = (movie) => {
   const genre = movie.genres.map(({ name }) => name).join(", ");
-    const watchedButtonText = isMovieInList('watched', movie.id) ? "ADDED TO WATCHED" : "ADD TO WATCHED";
-    const queueButtonText = isMovieInList('queue', movie.id) ? "ADDED TO QUEUE" : "ADD TO QUEUE";
+  const isActiveWatched = isMovieInList('watched', movie.id) ? 'active' : '';
+  const isActiveQueue = isMovieInList('queue', movie.id) ? 'active' : '';
 	return `
             <img class="modal__image" src="${
 							movie.poster_path ? IMG_URL + movie.poster_path : IMG_URL_DEFAULT
@@ -36,10 +36,10 @@ const renderDescription = (movie) => {
 				movie.overview ? movie.overview : noInfo
 			}</p>
     </div>
-      <div class="modal__buttons">
-        <button class="modal__btn" data-btn="addToWatched">${watchedButtonText}</button>
-        <button class="modal__btn" data-btn="addToQueue">${queueButtonText}</button>
-      </div>
+    <div class="modal__buttons">
+      <button class="modal__btn ${isActiveWatched}" data-btn="addToWatched">${isActiveWatched ? 'ADDED TO WATCHED' : 'ADD TO WATCHED'}</button>
+      <button class="modal__btn ${isActiveQueue}" data-btn="addToQueue">${isActiveQueue ? 'ADDED TO QUEUE' : 'ADD TO QUEUE'}</button>
+    </div>
   </div>`;
 };
 const renderFilmDescription = { renderDescription };
