@@ -1,4 +1,4 @@
-import { isMovieInList } from "./localStorage";
+import { isMovieInList } from "./local-storage";
 
 const IMG_URL = "https://image.tmdb.org/t/p/original";
 const IMG_URL_DEFAULT = "https://i.ibb.co/xq4LQMw/Filmoteka-by-Quattro.jpg";

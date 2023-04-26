@@ -1,4 +1,4 @@
-import { getFromWatched } from "./localStorage";
+import { getFromWatched } from "./local-storage";
 import { setPaginationQueued, setPaginationWatched } from "./paginationLibrary";
 import {
 	renderWatchedMovies,
