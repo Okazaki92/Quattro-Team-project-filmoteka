@@ -1,8 +1,8 @@
+import { setPaginationQueued, setPaginationWatched } from "./pagination-library";
 import {
-	setPaginationQueued,
-	setPaginationWatched,
-} from "./pagination-library";
-import { submitQueued, submitWatched } from "./render-library-movies";
+	submitQueued,
+	submitWatched,
+} from "./render-library-movies";
 
 const navMyLibrary = document.querySelector("#navMyLibrary");
 const navHome = document.querySelector("#navHome");
@@ -11,7 +11,7 @@ const headerHome = document.querySelector("#headerHome");
 const headerNav = document.querySelector("#headerNav");
 
 navMyLibrary.addEventListener("click", (e) => {
-	// e.preventDefault();
+	e.preventDefault();
 	headerHome.classList.add("header-library");
 
 	navHome.classList.remove("navigation__item--current");
