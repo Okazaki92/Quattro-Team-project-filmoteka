@@ -1,8 +1,8 @@
 import api from "./api";
 import axios from "axios";
-import tredingGallery from "./renderGallery";
-import getGallery from "./getGallery";
-import searchMovies from "./getSearchedMovies";
+import tredingGallery from "./render-gallery";
+import getGallery from "./get-gallery";
+import searchMovies from "./get-searched-movies";
 import Pagination from "tui-pagination";
 import "tui-pagination/dist/tui-pagination.css";
 axios.defaults.baseURL = api.BASE_URL;

@@ -1,8 +1,8 @@
 import './sass/main.scss';
-import './js/headerLibrary';
-import './js/renderGallery';
+import './js/header-library';
+import './js/render-gallery';
 import './js/search';
 import './js/modal';
-import './js/getFilmDescription';
+import './js/get-film-description';
 import './js/pagination';
-import './js/localStorage';
+import './js/local-storage';
