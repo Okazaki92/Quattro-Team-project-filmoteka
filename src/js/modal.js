@@ -5,7 +5,7 @@ import {
 	addToQueue,
 	isMovieInList,
 	removeFromList,
-} from "./localStorage";
+} from "./local-storage";
 
 const modalDOM = document.querySelector(".modal__window");
 

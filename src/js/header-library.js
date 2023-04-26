@@ -1,10 +1,10 @@
 import { getFromWatched } from "./local-storage";
-import { setPaginationQueued, setPaginationWatched } from "./paginationLibrary";
+import { setPaginationQueued, setPaginationWatched } from "./pagination-library";
 import {
 	renderWatchedMovies,
 	submitQueued,
 	submitWatched,
-} from "./renderLibraryMovies";
+} from "./render-library-movies";
 
 const navMyLibrary = document.querySelector("#navMyLibrary");
 const navHome = document.querySelector("#navHome");
