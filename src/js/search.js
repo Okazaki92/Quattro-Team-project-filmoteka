@@ -1,7 +1,6 @@
 import api from "./api";
 import axios from "axios";
 import tredingGallery from "./render-gallery";
-import getGallery from "./get-gallery";
 import searchMovies from "./get-searched-movies";
 import Pagination from "tui-pagination";
 import "tui-pagination/dist/tui-pagination.css";
