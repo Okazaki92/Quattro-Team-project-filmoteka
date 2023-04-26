@@ -28,7 +28,7 @@ const openModal = async (e) => {
 	modal.classList.add("is-loading", "modal__window--open");
 	movieId = e.target.closest("li").dataset.id;
 	try {
-		const data = await get-film-description.getMovieDescription(movieId);
+		const data = await getFilmDescription.getMovieDescription(movieId);
 		modalDOM.insertAdjacentHTML(
 			"beforeend",
 			renderFilmDescription.renderDescription(data),
