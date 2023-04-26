@@ -13,7 +13,6 @@ const moviesList = document.querySelector(".movies__list");
 const paginationDOM = document.querySelector("#pagination");
 
 let query = "";
-// rome-ignore lint/style/useConst: <explanation>
 let page = 1;
 searchForm.addEventListener("submit", async (event) => {
 	event.preventDefault();
