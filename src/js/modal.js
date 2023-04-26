@@ -1,11 +1,11 @@
-import getFilmDescription from "./getFilmDescription";
-import renderFilmDescription from "./renderFilmDescription";
+import getFilmDescription from "./get-film-description";
+import renderFilmDescription from "./render-film-description";
 import {
 	addToWatched,
 	addToQueue,
 	isMovieInList,
 	removeFromList,
-} from "./localStorage";
+} from "./local-storage";
 
 const modalDOM = document.querySelector(".modal__window");
 

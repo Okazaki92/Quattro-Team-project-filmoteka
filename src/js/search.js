@@ -1,8 +1,7 @@
 import api from "./api";
 import axios from "axios";
-import tredingGallery from "./renderGallery";
-import getGallery from "./getGallery";
-import searchMovies from "./getSearchedMovies";
+import tredingGallery from "./render-gallery";
+import searchMovies from "./get-searched-movies";
 import Pagination from "tui-pagination";
 import "tui-pagination/dist/tui-pagination.css";
 axios.defaults.baseURL = api.BASE_URL;
@@ -13,7 +12,6 @@ const moviesList = document.querySelector(".movies__list");
 const paginationDOM = document.querySelector("#pagination");
 
 let query = "";
-// rome-ignore lint/style/useConst: <explanation>
 let page = 1;
 searchForm.addEventListener("submit", async (event) => {
 	event.preventDefault();

@@ -1,10 +1,8 @@
-import { getFromWatched } from "./localStorage";
-import { setPaginationQueued, setPaginationWatched } from "./paginationLibrary";
+import { setPaginationQueued, setPaginationWatched } from "./pagination-library";
 import {
-	renderWatchedMovies,
 	submitQueued,
 	submitWatched,
-} from "./renderLibraryMovies";
+} from "./render-library-movies";
 
 const navMyLibrary = document.querySelector("#navMyLibrary");
 const navHome = document.querySelector("#navHome");
@@ -12,7 +10,6 @@ const formSearch = document.querySelector("#formSearch");
 const headerHome = document.querySelector("#headerHome");
 const headerNav = document.querySelector("#headerNav");
 
-//==========add two btn===============
 navMyLibrary.addEventListener("click", (e) => {
 	e.preventDefault();
 	headerHome.classList.add("header-library");
@@ -41,7 +38,7 @@ navMyLibrary.addEventListener("click", (e) => {
 
 		const btnWatched = document.querySelector("#btnWatched");
 		const btnQueue = document.querySelector("#btnQueue");
-		//==========add movies to my-library==========
+
 		submitWatched();
 		setPaginationWatched();
 
@@ -60,8 +57,6 @@ navMyLibrary.addEventListener("click", (e) => {
 		btnWatched.addEventListener("click", activeWatched);
 		btnQueue.addEventListener("click", activeQueued);
 	}
-
-	//===========change active btn===============
 
 	const toggleBtnActive = (e) => {
 		const clickedBtn = e.target;

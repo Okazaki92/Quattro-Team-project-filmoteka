@@ -1,6 +1,6 @@
-import { setPaginationWatched, setPaginationQueued } from './paginationLibrary';
-import { getFromQueued, getFromWatched } from "./localStorage";
-import getGallery from "./getGallery";
+import { setPaginationWatched, setPaginationQueued } from './pagination-library';
+import { getFromQueued, getFromWatched } from "./local-storage";
+import getGallery from "./get-gallery";
 const moviesDOM = document.querySelector(".movies__list");
 const IMG_URL = "https://image.tmdb.org/t/p/original";
 const IMG_URL_DEFAULT = "https://i.ibb.co/xq4LQMw/Filmoteka-by-Quattro.jpg";

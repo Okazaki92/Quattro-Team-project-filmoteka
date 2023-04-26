@@ -1,5 +1,5 @@
-import getGallery from "./getGallery";
-import tredingGallery from "./renderGallery";
+import getGallery from "./get-gallery";
+import tredingGallery from "./render-gallery";
 import Pagination from "tui-pagination";
 import "tui-pagination/dist/tui-pagination.css";
 
