@@ -22,7 +22,7 @@
   }
 }
 
-//=========================btn==========
+//===========btn===========
 .btn-library {
   padding: 0;
   list-style: none;
@@ -41,7 +41,9 @@
   background-color: initial;
   border: 1px solid var(--text-white);
   border-radius: 5px;
-  transition: background-color 250ms cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: background-color 250ms cubic-bezier(0.075, 0.82, 0.165, 1),
+    border 250ms cubic-bezier(0.075, 0.82, 0.165, 1),
+    color 250ms cubic-bezier(0.075, 0.82, 0.165, 1);
   filter: drop-shadow(0px 8px 43px rgba(255, 107, 1, 0.6));
   cursor: pointer;
 }
@@ -59,4 +61,21 @@
 .btn-current-active {
   background-color: var(--text-orange);
   border: 0;
+  transition: background-color 250ms cubic-bezier(0.075, 0.82, 0.165, 1),
+    border 250ms cubic-bezier(0.075, 0.82, 0.165, 1),
+    color 250ms cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.btn-current-active:hover {
+  background-color: initial;
+  border: 1px solid var(--text-white);
+  color: var(--text-white);
+}
+.btn-current-inactive {
+  transition: border 250ms cubic-bezier(0.075, 0.82, 0.165, 1),
+    color 250ms cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.btn-current-inactive:hover {
+  border: 1px solid var(--text-orange);
+  color: var(--text-orange);
 }
