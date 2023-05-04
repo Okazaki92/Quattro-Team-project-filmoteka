@@ -8,12 +8,14 @@ const moviesDOM = document.querySelector(".movies__list");
 const IMG_URL = "https://image.tmdb.org/t/p/original";
 const IMG_URL_DEFAULT = "https://i.ibb.co/xq4LQMw/Filmoteka-by-Quattro.jpg";
 const NO_MOVIES_MEME = "https://i.imgflip.com/7kk9al.jpg";
+const paginationDOM = document.querySelector("#pagination");
 
 export const submitWatched = (event) => {
 	try {
 		const data = getFromWatched(1);
 		if (data.length === 0) {
 			moviesDOM.innerHTML = `<img class='movie__library' src='${NO_MOVIES_MEME}' alt='Boromir meme'>`;
+			paginationDOM.innerHTML = "";
 		} else {
 			renderLibraryMovies(data);
 			setPaginationWatched();
@@ -28,6 +30,7 @@ export const submitQueued = (event) => {
 		const data = getFromQueued(1);
 		if (data.length === 0) {
 			moviesDOM.innerHTML = `<img class='movie__library' src='${NO_MOVIES_MEME}' alt='Boromir meme'>`;
+			paginationDOM.innerHTML = "";
 		} else {
 			renderLibraryMovies(data);
 			setPaginationQueued();

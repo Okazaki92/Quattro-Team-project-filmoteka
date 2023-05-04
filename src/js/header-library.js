@@ -23,10 +23,8 @@ const toggleBtnActive = (e) => {
 	}
 	if (btnWatched.classList.contains("btn-current-active")) {
 		submitWatched();
-		setPaginationWatched();
 	} else {
 		submitQueued();
-		setPaginationQueued();
 	}
 };
 
