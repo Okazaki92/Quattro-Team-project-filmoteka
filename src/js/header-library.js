@@ -1,19 +1,34 @@
-const btnWatched = document.querySelector('#btnWatched');
-const btnQueue = document.querySelector('#btnQueue');
+import {
+	setPaginationQueued,
+	setPaginationWatched,
+} from "./pagination-library";
+import { submitQueued, submitWatched } from "./render-library-movies";
 
-const toggleBtnActive = e => {
-  const clickedBtn = e.target;
+const btnLibrary = document.querySelector(".btn-library");
 
-  if (!clickedBtn.classList.contains('btn-current-active')) {
-    btnWatched.classList.toggle('btn-current-active');
-    btnQueue.classList.toggle('btn-current-active');
-  }
+const btnWatched = document.querySelector("#btnWatched");
+const btnQueue = document.querySelector("#btnQueue");
 
-  if (clickedBtn.classList.contains('btn-current-inactive')) {
-    btnWatched.classList.toggle('btn-current-inactive');
-    btnQueue.classList.toggle('btn-current-inactive');
-  }
+const toggleBtnActive = (e) => {
+	const clickedBtn = e.target;
+
+	if (!clickedBtn.classList.contains("btn-current-active")) {
+		btnWatched.classList.toggle("btn-current-active");
+		btnQueue.classList.toggle("btn-current-active");
+	}
+
+	if (clickedBtn.classList.contains("btn-current-inactive")) {
+		btnWatched.classList.toggle("btn-current-inactive");
+		btnQueue.classList.toggle("btn-current-inactive");
+	}
+	if (btnWatched.classList.contains("btn-current-active")) {
+		submitWatched();
+	} else {
+		submitQueued();
+	}
 };
 
-btnWatched.addEventListener('click', toggleBtnActive);
-btnQueue.addEventListener('click', toggleBtnActive);
+btnWatched.addEventListener("click", toggleBtnActive);
+btnQueue.addEventListener("click", toggleBtnActive);
+
+submitWatched();
