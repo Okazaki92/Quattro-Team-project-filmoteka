@@ -9,11 +9,8 @@
     height: 574px;
     width: 395px;
   }
-
-  &:hover {
-    transform: scale(1.05);
-  }
 }
+
 .middle__section {
   @media screen and (min-width: 768px) {
     margin-top: 60px;
@@ -33,6 +30,9 @@
   }
   @media screen and (min-width: 1280px) {
     max-width: 395px;
+  }
+  &:hover {
+    transform: scale(1.05);
   }
 }
 
