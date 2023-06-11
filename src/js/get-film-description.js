@@ -31,5 +31,5 @@ const getMovieDescription = async movieId => {
     console.log(error);
   }
 };
-const getFilmDescription = { getMovieDescription, getMovieVideo };
+const getFilmDescription = { getMovieDescription};
 export default getFilmDescription;
