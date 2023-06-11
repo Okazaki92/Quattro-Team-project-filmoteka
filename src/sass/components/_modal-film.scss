@@ -145,6 +145,29 @@
     background-color: var(--button-queue-hover);
   }
 }
+.modal__video {
+  margin-top: 30px;
+  display: flex;
+  max-height: 20px;
+}
+
+.modal__btn-video {
+  padding-left: 0px;
+  display: flex;
+  max-height: 20px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: calc(16 / 12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  border: 0px solid var(--text-black);
+  background-color: transparent;
+  cursor: pointer;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+  color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
 
 .is-hidden {
   opacity: 0;
