@@ -11,7 +11,6 @@ const paginationDOM = document.querySelector('#pagination');
 export const submitWatched = event => {
   try {
     const data = getFromWatched(1);
-    console.log(data);
     if (data.length === 0) {
       moviesDOM.innerHTML = `<img class='movie__library' src='${NO_MOVIES_MEME}' alt='Boromir meme'>`;
       paginationDOM.innerHTML = '';

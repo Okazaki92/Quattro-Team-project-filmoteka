@@ -33,7 +33,6 @@ const getFromLocalStorage = (key, page) => {
 
 export const getFromWatched = page => {
   const data = getFromLocalStorage('watched', page);
-  console.log(data);
   return data;
 };
 
