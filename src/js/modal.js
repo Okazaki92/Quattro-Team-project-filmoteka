@@ -25,26 +25,23 @@ const openModal = async e => {
   movieId = e.target.closest('li').dataset.id;
   try {
     const data = await getFilmDescription.getMovieDescription(movieId);
-    //   (await getFilmDescription.getMovieVideo(movieId));
-    console.log(data);
     modalDOM.insertAdjacentHTML(
       'beforeend',
       renderFilmDescription.renderDescription(data.responseData, data.responseVideoData),
     );
-    addModalButtonListeners(data);
     const onClick = () => {
-      const key = modalVideo.dataset.key;
-      console.log(key);
+      const key = data.responseVideoData.key;
       basicLightbox
         .create(
           `
-		<iframe width="560" height="315" src="https://www.youtube.com/embed/Scxs7L0vhZ4" frameborder="0" allowfullscreen></iframe>
-	`,
+			<iframe width="560" height="315" src="https://www.youtube.com/embed/${key}" frameborder="0" allowfullscreen></iframe>
+			`,
         )
         .show();
     };
     const modalVideo = document.querySelector('.modal__video');
     modalVideo.addEventListener('click', onClick);
+    addModalButtonListeners(data.responseData, data.responseVideoData);
   } catch (error) {
     console.log(error);
   } finally {
