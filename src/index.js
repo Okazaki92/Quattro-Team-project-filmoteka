@@ -7,3 +7,4 @@ import './js/modal';
 import './js/get-film-description';
 import './js/pagination';
 import './js/local-storage';
+import './js/modal-team';
